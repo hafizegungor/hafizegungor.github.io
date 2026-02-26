@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bir Enkazı Mimariye Dönüştürmek: Legacy Projelerde Modernizasyon Stratejileri
+title: "Bir Enkazı Mimariye Dönüştürmek: Legacy Projelerde Modernizasyon Stratejileri"
 image: 01.jpg
 date: 2026-02-25 17:50:18 +0200
 tags: [legacy, architecture]
