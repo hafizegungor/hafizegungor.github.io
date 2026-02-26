@@ -1,28 +1,34 @@
-<div class="c-categories" style="display: none;">
-  <ul class="c-categories__list u-lists-reset">
-    {% capture cats %} {% for cat in site.categories %} {{ cat | first }} {% endfor %} {% endcapture %} 
-    {% assign sortedCats = cats | split: ' ' | sort %}
-    {% for category in sortedCats %}
-    <li class="c-categories__item">
-      {% assign cat_dir = site.category_dir | default: 'category' %}
-      <a class="c-categories__link" href="{{ site.baseurl }}/{{ cat_dir }}/{{ category | downcase | slugify }}/">
-        {% for post in site.categories[category] limit: 1 %}
-        {% assign empty-figure = nil %}
-        {% if post.image %}
-        <div class="c-categories__img">
-          <figure style="background-image: url('{{ site.baseurl }}/images/{{ post.image }}');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        {% else %}
-          {% assign empty-figure = 'c-empty-figure' %}
-        {% endif %}
-        {% endfor %}
-        <div class="c-categories__container {{empty-figure}}">
-          <h2 class="c-categories__header">{{ category }}</h2>
-          <p class="c-categories__count"><span>{{ site.categories[category] | size }}</span> Posts</p>
-        </div>
-      </a>
-    </li>
+<div class="c-categories" style="display: block;"> <ul class="c-categories__list u-lists-reset">
+    {% comment %} Kategorileri alfabetik sıralayalım {% endcomment %}
+    {% assign sorted_categories = site.categories | sort %}
+
+    {% for category_pair in sorted_categories %}
+      {% comment %} category_pair[0] ismin kendisi, [1] o kategorideki yazılardır {% endcomment %}
+      {% assign category_name = category_pair[0] %}
+      {% assign posts = category_pair[1] %}
+      
+      <li class="c-categories__item">
+        {% assign cat_dir = site.category_dir | default: 'category' %}
+        <a class="c-categories__link" href="{{ site.baseurl }}/{{ cat_dir }}/{{ category_name | slugify }}/">
+          
+          {% comment %} Kategori görseli için son yazının resmini alıyoruz {% endcomment %}
+          {% assign last_post = posts | first %}
+          
+          <div class="c-categories__img">
+            {% if last_post.image %}
+              <figure style="background-image: url('{{ site.baseurl }}/images/{{ last_post.image }}');"></figure>
+            {% else %}
+              <figure class="c-empty-figure" style="background-color: #f0f0f0;"></figure>
+            {% endif %}
+            <span class="c-categories__more">Hepsini Gör</span>
+          </div>
+
+          <div class="c-categories__container">
+            <h2 class="c-categories__header">{{ category_name }}</h2>
+            <p class="c-categories__count"><span>{{ posts | size }}</span> Yazı</p>
+          </div>
+        </a>
+      </li>
     {% endfor %}
   </ul>
-</div> <!-- ./c-categories -->
+</div>
