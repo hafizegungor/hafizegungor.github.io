@@ -57,7 +57,7 @@ Kodun "emniyet kemeri" testtir.
 
 Peki, mesela Java'dan Kotlin'e, MVVM'den MVI'ya geçerken gemiyi batırmadan rotayı nasıl değiştiririz?
 
-# 1. Hype Değil, Stratejik Karar
+## 1. Hype Değil, Stratejik Karar
 Modernizasyon bir "hype" yada popülerlik takibi olarak değil de bir Senior olarak kendimize ve ekibimize şu sorular sorulmalı:
 * Mevcut yapı yeni özellik ekleme hızımızı (velocity) ne kadar yavaşlatıyor?
 
@@ -65,7 +65,7 @@ Modernizasyon bir "hype" yada popülerlik takibi olarak değil de bir Senior ola
 
 * Crash oranlarımızın ne kadarı mimari eksikliklerden kaynaklanıyor?
   
-# 2. "Big Bang Rewrite" Tuzağından Kaçınmak
+## 2. "Big Bang Rewrite" Tuzağından Kaçınmak
 Çoğu junior veya mid-level arkadaşın düştüğü en büyük hata: "Her şeyi silelim, baştan yazalım, bir ay sürer." 7 yılın bana öğrettiği tek bir gerçek var: Asla bir ay sürmez.
 O eski kodun içinde, yılların getirdiği, kimsenin hatırlamadığı ama hayati önem taşıyan "edge case" çözümleri gizlidir.
 ### Strangler Fig Pattern (Boğucu İncir Stratejisi)
@@ -76,7 +76,7 @@ Bridge (Köprü) Katmanı: Eski ve yeni dünyayı birbirine bağlayan sağlam In
 
 Özetle bu strateji mevcut yapının üzerine modern katmanlar inşa ederek, eski fonksiyonları zamanla devre dışı bırakmak.
 
-# 3. Emniyet Kemeri (Testler)
+## 3. Emniyet Kemeri (Testler)
 Kodun içine girmeden önce, sistemin şu an nasıl çalıştığını belgelemelisiniz.
 Refactor edilen her modülün en az %70-80 oranında test kapsamına alınmasını sağlamak olası regresyon riskini yönetmek için önemlidir.
 
@@ -91,7 +91,7 @@ Modernizasyon yaparken sadece dili veya mimariyi değil, Threading ve Nullabilit
 MVVM'de her UI bileşeni için ayrı bir LiveData veya StateFlow tanımlamak (Örn: isLoading, errorMessage, data),
 proje büyüdükçe "State Explosion" dediğimiz duruma yol açar.
 Senior seviyesinde bir dönüşüm için MVI (Model-View-Intent) ile bu durumu tek bir ViewState altında topluyoruz.
-# (Refactor Öncesi vs. Sonrası)
+## (Refactor Öncesi vs. Sonrası)
 ### MVVM (Eski Yaklaşım):
 ```kotlin class ProductViewModel : ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
@@ -107,18 +107,19 @@ Senior seviyesinde bir dönüşüm için MVI (Model-View-Intent) ile bu durumu t
     val error: String? = null
 )
 
-class ProductViewModel : ViewModel() {
+ class ProductViewModel : ViewModel() {
     private val _state = MutableStateFlow(ProductViewState())
     val state: StateFlow<ProductViewState> = _state.asStateFlow()
 
     // UI sadece 'state'i dinler ve tek bir yerden beslenir
-}```
+}
+```
 
 Bu yapıya geçmek, özellikle asenkron işlemlerde (Side Effects) hangi verinin hangi durumda olduğunu takip etmeyi oldukça kolaylaştırıyor. 
 Üstelik Unidirectional Data Flow (UDF) prensibi sayesinde hata ayıklama (debugging) süremiz yarı yarıya azalıyor.
 
-Modernizasyonun en sancılı ama en ödüllü kısmı DI (Dependency Injection) yapısını güncellemektir. 
-7 yıl önce Dagger 2'nin o karmaşık Component ve Module yapısıyla boğuşurken, bugün Hilt ile hayatımız çok daha kolay bir hale geldi.
+* Modernizasyonun en sancılı ama en ödüllü kısmı 👉 DI (Dependency Injection) yapısını güncellemektir. 
+Yıllar önce Dagger 2'nin o karmaşık Component ve Module yapısıyla boğuşurken, bugün Hilt ile hayatımız çok daha kolay bir hale geldi.
 Eğer projenizde hiç DI yoksa veya çok karmaşıksa, önce ViewModel seviyesinde Hilt entegrasyonu yapın. Bu, kodun test edilebilirliğini %50 artıracaktır.
 
 ### Görsel Bir Devrim: XML'den Jetpack Compose'a Geçiş
@@ -127,11 +128,12 @@ Eski bir projede binlerce satırlık XML dosyalarını bir anda çöpe atamazsı
 * ComposeView Kullanımı: Mevcut bir XML layout'un içine sadece yeni eklenen bir butonu veya listeyi Compose ile yazarak başlayın.
 
 * Temalandırma (Theming): XML tabanlı MaterialComponents temanızı, Compose MaterialTheme ile eşleştirin (Bridge). Böylece uygulamanın yarısı XML yarısı Compose olsa bile kullanıcı farkı anlamaz.
- // Eski XML içinde Compose kullanmak bu kadar basit:
+``` // Eski XML içinde Compose kullanmak bu kadar basit:
 binding.composeView.setContent {
     MatherialTheme {
         ProductDetailScreen(uiState)
     }
 }
+```
 
 Legacy bir projeyi modernize etmek, bir antikayı restore etmek gibidir; orijinaline saygı duyarken onu modern dünyanın standartlarına (Hilt, MVI, Compose) hazırlarsınız.
