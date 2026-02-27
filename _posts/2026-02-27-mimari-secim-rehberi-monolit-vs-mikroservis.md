@@ -3,7 +3,7 @@ layout: post
 title: "Architectural Decision Records: Monolith, Microservices or Modular Monolith?"
 image: 020202.png
 date: 2026-02-27
-categories: [systemdesign]
+categories: productivity
 tags: [legacy, architecture]
 ---
 
