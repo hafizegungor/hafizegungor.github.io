@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Architectural Decision Records: Monolith, Microservices or Modular Monolith?"
+title: "Monolith, Microservices, Modular Monolith"
 image: 020202.png
 date: 2026-02-27
 categories: productivity
