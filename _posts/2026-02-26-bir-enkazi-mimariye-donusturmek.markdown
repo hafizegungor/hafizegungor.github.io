@@ -4,7 +4,7 @@ title: "Bir Enkazı Mimariye Dönüştürmek: Legacy Projelerde Modernizasyon St
 image: 01.jpg
 date: 2026-02-25 17:50:18 +0200
 tags: [legacy, architecture]
-categories: productivity
+categories: mobile
 ---
 7 yıllık mobil geliştirme kariyerimde onlarca farklı projeye dokundum. Bazıları sıfırdan (greenfield) heyecanla başladığımız, bazıları ise "bunu kim yazmış?" dedirten, dokunmaya korkulan devasa "legacy" (miras) projelerdi.
 Kıdemli bir mühendis olmanın getirdiği en büyük sorumluluklardan biri, o "korkulan" kod yığınını, iş süreçlerini aksatmadan modern, test edilebilir ve sürdürülebilir bir yapıya dönüştürmektir.
