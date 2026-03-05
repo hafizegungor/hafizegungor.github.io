@@ -4,7 +4,7 @@ title: 10 Tips to improve  your workflow
 image: 4.jpg
 date: 2018-02-07 17:13:18 +0200
 tags: workflow programming
-categories:
+categories: android
 ---
 As an Android engineer, crafting seamless and efficient workflows is vital for success in the ever-evolving world of app development. Embracing smart strategies and tools can elevate your productivity and the quality of your work. Here are ten tips to optimize your workflow:
 
