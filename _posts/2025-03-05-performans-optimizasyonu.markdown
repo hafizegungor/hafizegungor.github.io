@@ -2,7 +2,7 @@
 layout: post
 title: "Performans Optimizasyonu: Memory Leak, GPU Rendering ve Cold Start"
 image: 06.jpg
-date: 2026-03-05 17:50:18 +0200
+date: 2025-03-05 17:50:18 +0200
 tags: [performance, optimization, memory leak, gpu render, cold start, mobile]
 categories: mobile
 ---
