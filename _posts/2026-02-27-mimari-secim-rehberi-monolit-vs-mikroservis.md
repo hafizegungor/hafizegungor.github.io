@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Monolith, Microservices, Modular Monolith"
-image: 020202.png
+image: 02.jpg
 date: 2026-02-27
 categories: productivity
 tags: [legacy, architecture]
