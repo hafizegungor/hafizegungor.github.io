@@ -2,7 +2,7 @@
 layout: post
 title: "LGTM Code Review"
 image: 04.jpg
-date: 2026-03-25
+date: 2026-03-05
 categories: productivity
 tags: [engineering, code review, team culture, best practices]
 ---
