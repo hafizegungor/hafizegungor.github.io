@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Yazılım Projelerindeki Gizli Maliyet: Teknik Borç (Technical Debt)"
-image: 03.jpg
+image: 003.jpg
 date: 2026-02-27
 categories: productivity
 tags: [technical debt, architecture, software]
