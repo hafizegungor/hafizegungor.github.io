@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "LGTM ≠ Code Review"
-image: 04.png
+title: "LGTM Code Review"
+image: 04.jpg
 date: 2026-03-25
 categories: productivity
 tags: [engineering, code-review, team-culture, best-practices]
