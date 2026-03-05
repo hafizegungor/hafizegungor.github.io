@@ -3,7 +3,7 @@ layout: post
 title: "Deep Working"
 image: 05.jpg
 date: 2026-03-05 17:50:18 +0200
-tags: [deep work, focus]
+tags: [deep work, focus, engineering]
 categories: productivity
 ---
 
